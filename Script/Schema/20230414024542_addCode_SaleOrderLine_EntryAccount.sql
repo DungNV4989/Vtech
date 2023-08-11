@@ -1,0 +1,22 @@
+BEGIN TRANSACTION;
+GO
+
+CREATE SEQUENCE [EntryAccountNumbers] AS int START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE NO CYCLE;
+GO
+
+CREATE SEQUENCE [SaleOrderLineNumbers] AS int START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE NO CYCLE;
+GO
+
+ALTER TABLE [SaleOrderLines] ADD [Code] nvarchar(max) NULL DEFAULT (FORMAT(NEXT VALUE FOR SaleOrderLineNumbers,'0000000000'));
+GO
+
+ALTER TABLE [EntryAccounts] ADD [Code] nvarchar(max) NULL DEFAULT (FORMAT(NEXT VALUE FOR EntryAccountNumbers,'0000000000'));
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230414024542_addCode_SaleOrderLine_EntryAccount', N'6.0.5');
+GO
+
+COMMIT;
+GO
+

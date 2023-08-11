@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>VTECHERP</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>$(NoWarn);CS1591;CS8632;</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>$(NoWarn);CS1591;CS8632;</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VTECHERP.Application.Contracts\VTECHERP.Application.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Account.HttpApi.Client" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.Identity.HttpApi.Client" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.TenantManagement.HttpApi.Client" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi.Client" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.SettingManagement.HttpApi.Client" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="**\*generate-proxy.json" />
+    <Content Remove="**\*generate-proxy.json" />
+  </ItemGroup>
+
+</Project>

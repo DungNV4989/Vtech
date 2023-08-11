@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>VTECHERP</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>$(NoWarn);CS1591;CS8632;</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>$(NoWarn);CS1591;CS8632;</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTOs\DebtReminderLogs\**" />
+    <EmbeddedResource Remove="DTOs\DebtReminderLogs\**" />
+    <None Remove="DTOs\DebtReminderLogs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="DTOs\DebtReminderLogs\DebtReminderLogCreateRequest.cs" />
+    <Compile Include="DTOs\DebtReminderLogs\DebtReminderLogDto.cs" />
+    <Compile Include="DTOs\DebtReminderLogs\ExportDebtReminderLogResponse.cs" />
+    <Compile Include="DTOs\DebtReminderLogs\SearchDebtReminderLogRequest.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VTECHERP.Domain.Shared\VTECHERP.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="2.2.0" />
+    <PackageReference Include="Volo.Abp.ObjectExtending" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Application.Contracts" Version="6.0.1" />
+  </ItemGroup>
+
+</Project>

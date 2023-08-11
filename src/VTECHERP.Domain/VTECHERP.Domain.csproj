@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>VTECHERP</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>$(NoWarn);CS1591;CS8632;</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>$(NoWarn);CS1591;CS8632;</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VTECHERP.Application.Contracts\VTECHERP.Application.Contracts.csproj" />
+    <ProjectReference Include="..\VTECHERP.Domain.Shared\VTECHERP.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Emailing" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.Identity.Domain" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.BackgroundJobs.Domain" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.AuditLogging.Domain" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Domain" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.OpenIddict.Domain" Version="6.0.1" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.OpenIddict" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Repositories\Implement\" />
+  </ItemGroup>
+
+</Project>

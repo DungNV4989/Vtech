@@ -1,0 +1,15 @@
+BEGIN TRANSACTION;
+GO
+
+CREATE SEQUENCE [EntryLogNumbers] AS int START WITH 1 INCREMENT BY 1 NO MINVALUE NO MAXVALUE NO CYCLE;
+GO
+
+ALTER TABLE [EntryLogs] ADD [Code] nvarchar(max) NULL DEFAULT (FORMAT(NEXT VALUE FOR EntryLogNumbers,'0000000000'));
+GO
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230417101021_addCode-EntryLog', N'6.0.5');
+GO
+
+COMMIT;
+GO
